@@ -1,0 +1,7 @@
+*.pyc
+*.aux
+*.log
+*.gz
+*.tgz
+*egg*
+~*

@@ -1,0 +1,102 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section{Motivation for Ricci Flows in manifold untangling or de-curving}
+
+In 1982, Richard Hamilton introduced the idea of the Ricci flow in the hope of evolving the shape of an arbitrary Riemannian manifold into that of a 3-sphere. The idea is to start from an arbitrary Riemannian manifold with a metric $g_{0}$ and then "evolve" that metric according to an equation that looks like a "Heat Equation":
+\begin{eqnarray}
+\frac{\partial g}{\partial t} = -2\text{Ric}(g),~\text{with}~g(0)=g_{0}
+\end{eqnarray}
+All this work was motivated by the Poincare conjecture that states that a closed simply connected 3-manifold is \textbf{homeomorphic} to the 3-sphere.
+
+\section{Heat Equation on a circle}
+
+Let us consider the circle in 1D, denoted $\mathbb{S}^{1}$, and $u(\theta)$ a function of the angle describing the position of a point on the circle. $\theta$ lives in the interval $\left[0,2\pi\right]$. We consider $u$ to represent a \textbf{temperature} field. As a consequence, because of the periodicity of $\mathbb{S}^{1}$, we require $u$ to be $2\pi$-periodic. We also wish to simplify things a bit by letting $u$ to belong to $\mathcal{C}^{k}(\mathbb{S}^{1})$, which indicates that $u$ is continuous, and has continuous $i$-th derivatives until order $k$.
+
+\subsection{Fundamental equation}
+
+The master equation that will evolve the temperature field $u$ is given by the "Heat Equation" which is a second order partial differential equation. That equation can be recast into the following adimensional form (after proper rescaling of time, angle and the function itself):
+\begin{eqnarray}
+\frac{\partial u}{\partial t} = \frac{\partial ^2 u}{\partial \theta ^2},~\text{for all}~t>0~\text{and}~\theta\in\mathbb{S}^1
+\end{eqnarray}
+The initial condition is given by a starting temperature field:
+\begin{eqnarray}
+u(0,\theta) = g(\theta)
+\end{eqnarray}
+
+\subsection{General solution}
+
+The classic technique of separation of variables can be used to solve that equation. The idea is to make the ansatz that the solution can be written as a product of two functions. The first only depends on time while the second only depends on $\theta$:
+\begin{eqnarray}
+u(t,\theta)=T(t)\Theta(\theta)
+\end{eqnarray}
+which, once injected into the original Heat Equation leads to the following separation:
+\begin{eqnarray}
+\frac{T'(t)}{T(t)} = -\lambda = \frac{\Theta ''(\theta)}{\Theta(\theta)}
+\end{eqnarray}
+The only possible solution to this equation is that both functions on each side of the equality are actually constant. That constant is called a \textit{separation constant} and we denote it by the following character : $-\lambda$.
+
+Using the above, we end up with two ordinary differential equations to solve. We don't forget that the solution we seek $u(t,\theta)$ has to satisfy the properties we intended, namely $2\pi$-periodicity and the fact that since we describe a temperature that latter cannot increase indefinitely to $+\infty$. The equations are:
+\begin{eqnarray}
+\Theta '' + \lambda \Theta = 0 \nonumber \\
+T' + \lambda T = 0
+\end{eqnarray}
+Solutions of the first equation can be generally written as:
+\begin{eqnarray}
+\Theta_{k}(\theta) = A_{k}\cos(k\theta) + B_{k}\sin(k\theta),~\text{where}~k=\sqrt{\lambda}
+\end{eqnarray}
+$k$ is in general a complex number, but since we require the function to be \textit{periodic}, we see that $k$ has to be real and so $\lambda$ has to be \textbf{non-negative}. If $\lambda=0$ then the solution is a constant. But periodicity puts constraints on the values of $k$ too. Indeed, the function needs to be $2\pi$-periodic. So as a consequence, $k$ can only be restricted to the set of non-negative integers, $\mathbb{N}$.
+
+From the solutions of the first equation, we immediately solve for the second and find the following general solution:
+\begin{eqnarray}
+T_{k}(t) = e^{-k^2 t}
+\end{eqnarray}
+
+The general solution is then:
+\begin{eqnarray}
+u_{k}(t,\theta) = e^{-k^2 t}\left(A_{k}\cos(k\theta) + B_{k}\sin(k\theta)\right)
+\end{eqnarray}
+
+Since the Heat Equation is \textbf{linear}, we see that \textbf{any} linear combination of the solutions $u_{k}(t,\theta)$ is also a solution. So all in all, the most general solution is a Fourier series:
+\begin{eqnarray}
+u(t,\theta) = A_{0} + \sum_{k=1}^{+\infty} e^{-k^2 t}\left[A_{k}\cos(k\theta) + B_{k}\sin(k\theta)\right]
+\end{eqnarray}
+
+Using the initial condition, $u(0,\theta)=g(\theta)$, we end up with:
+\begin{eqnarray}
+g(\theta) = A_{0} + \sum_{k=1}^{+\infty}\left[A_{k}\cos(k\theta) + B_{k}\sin(k\theta)\right]
+\end{eqnarray}
+and we only have to decompose $g(\theta)$ in Fourier Series to find out what the values of $A_{k}$ and $B_{k}$ are. More specifically, we have the following formulas:
+\begin{eqnarray}
+A_{0} &=& \frac{1}{2\pi}\int_{0}^{2\pi}g(\theta)d\theta \nonumber \\
+A_{k} &=& \frac{1}{\pi}\int_{-\pi}^{\pi}g(\theta)\cos(k\theta)d\theta \\
+B_{k} &=& \frac{1}{\pi}\int_{-\pi}^{\pi}g(\theta)\sin(k\theta)d\theta \nonumber
+\end{eqnarray}
+
+\subsection{Very general solution properties}
+
+Among the many fascinating properties that solutions to the Heat Equation have, we will list a few here:
+\begin{enumerate}
+\item if $u$ and $v$ are solutions to the Heat equation, and that at $t=0$ (initial time), we have $u(0,\theta) < v(0,\theta)$, then at \textbf{any later} time, we also have $u(t,\theta)\leq v(t,\theta)$ for all time $t$ and angle $\theta$.
+\item if $g(\theta)$ is the initial temperature field, so $g(\theta)=u(0,\theta)$, then at \textbf{any later} time, $u$ is \textbf{bounded} by the \textit{minimum} and \textit{maximum} of $g$.
+\item $u$ converges to its limit (a uniform temperature, which equals the mean of the temperature field) \textbf{exponentially} quickly (in $L^2$ norm) and \textbf{uniformly} in $\theta$.
+\end{enumerate}
+
+\section{How to straighten up a closed 1D curve ?}
+
+This section points to a talk given by Andrejs Treibergs that shows how to use the Ricci flow to solve the "straightening" problem: Is it possible to deform \textbf{continuously} a closed planar curve in such a way that:
+\begin{itemize}
+\item The parts that are bent the most are unbent the fastest
+\item The curve does not cross itself
+\item The deformation limit is a circle
+\end{itemize}
+
+The answer to these questions are given in the talk by Andrejs Treibergs at the following address : \url{http://www.math.utah.edu/~treiberg/CurvFlowSlides.pdf}.
+
+
+\end{document}
