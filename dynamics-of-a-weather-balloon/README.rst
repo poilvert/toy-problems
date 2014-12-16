@@ -50,7 +50,7 @@ if one calls the program without any argument::
 
 The result is shown below:
 
-.. image:: https://github.com/poilvert/Balloon-Flight-Dynamics/raw/master/atmosphere.png
+.. image:: https://github.com/poilvert/toy-problems/blob/master/dynamics-of-a-weather-balloon/atmosphere.png
 
 Dynamical model
 ---------------
@@ -120,7 +120,7 @@ same graph.
 
 An example of the kind of plot that one obtains is given below:
 
-.. image:: https://github.com/poilvert/Balloon-Flight-Dynamics/raw/master/balloon_flight_dynamics.png
+.. image:: https://github.com/poilvert/toy-problems/blob/master/dynamics-of-a-weather-balloon/balloon_flight_dynamics.png
 
 Discussion
 ==========
